@@ -14,7 +14,7 @@ public class Data{
     private double probability;
     private int sample_size;
     private boolean is_confident;
-    private Instant processed_at = Instant.now();
+    private String processed_at = Instant.now().toString();
 }
 
 
