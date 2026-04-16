@@ -54,7 +54,7 @@ GET https://data-processing-task-production.up.railway.app/api/classify?name=Joh
     "is_confident": true,
     "processed_at": "2026-04-01T12:00:00Z"
   }
-}
+
 
 
 Error Responses
@@ -74,6 +74,5 @@ https://data-processing-task-production.up.railway.app/api/classify?
 }
 CORS
 This API includes the Access-Control-Allow-Origin: * header, allowing it to be accessed by external grading scripts and frontend applications.
-  }
-}
+  
 
