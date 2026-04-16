@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/classify")
+@RequestMapping("/api")
 public class GenderDataController {
     private final GenderDataService genderDataService;
 
@@ -15,7 +15,7 @@ public class GenderDataController {
     }
 
 
-    @GetMapping
+    @GetMapping("/classify")
     public ResponseEntity<?> getGenderData(@RequestParam(name = "name") String name) {
         return ResponseEntity.ok(genderDataService.getGenderInfo(name));
     }

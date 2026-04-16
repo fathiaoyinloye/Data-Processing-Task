@@ -26,6 +26,8 @@ public class GenderDataService {
                 .uri(url)
                 .retrieve()
                 .body(GenderData.class);
+        if (externalData == null || externalData.getGender() == null || externalData.getCount() == 0)
+            throw new GenderApiException("No prediction available for the provided name", HttpStatus.OK);
 
         validateGenderAndCount(externalData.getGender(),externalData.getCount());
         Mappers.mapData(externalData, name);

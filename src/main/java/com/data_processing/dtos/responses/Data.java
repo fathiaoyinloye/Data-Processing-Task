@@ -14,6 +14,7 @@ public class Data{
     private String gender;
     private double probability;
     private int sample_size;
+
     @JsonProperty("is_confident")
     private boolean isConfident;
     private String processed_at = Instant.now().toString();
