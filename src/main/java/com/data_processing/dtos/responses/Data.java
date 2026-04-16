@@ -2,6 +2,7 @@ package com.data_processing.dtos.responses;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,8 +17,13 @@ public class Data{
     private int sample_size;
 
     @JsonProperty("is_confident")
+    @Getter(AccessLevel.NONE)
     private boolean isConfident;
     private String processed_at = Instant.now().toString();
+
+    public boolean getIsConfident() {
+        return isConfident;
+    }
 }
 
 

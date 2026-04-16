@@ -7,6 +7,8 @@ import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.client.RestClientException;
+import org.springframework.web.servlet.NoHandlerFoundException;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -22,6 +24,12 @@ public class GlobalExceptionHandler {
         return ResponseEntity
                 .status(ex.getStatus())
                 .body(new ErrorResponse("error", ex.getMessage()));
+    }
+    @ExceptionHandler({NoHandlerFoundException.class, NoResourceFoundException.class})
+    public ResponseEntity<ErrorResponse> handleWrongApiException(NoResourceFoundException ex) {
+        return ResponseEntity
+                .status(ex.getStatusCode())
+                .body(new com.data_processing.dtos.responses.ErrorResponse("error", "Wrong API call"));
     }
 
     @ExceptionHandler(MissingServletRequestParameterException.class)

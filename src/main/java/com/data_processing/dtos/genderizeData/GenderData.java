@@ -12,5 +12,4 @@ public class GenderData {
         private int count;
     }
 
-//    {"count":3461,"name":"nonso","gender":"male","probability":0.91}
 

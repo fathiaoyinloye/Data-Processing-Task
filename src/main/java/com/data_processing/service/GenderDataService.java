@@ -37,9 +37,6 @@ public class GenderDataService {
         return finalResponse;
     }
 
-    private Boolean computeIsConfident(double probability, int count){
-        return probability >= 0.7 && count >= 100;
-    }
 
     private void validateGenderAndCount(String gender, int count ){
         if (gender ==null || count == 0) {
